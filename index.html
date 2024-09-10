@@ -7,6 +7,178 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+    <style>
+        /* Fuente retro para el nombre de la artista */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.header {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.artist-name {
+    font-size: 4rem;
+    color: #00ffcc;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    }
+    to {
+        text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 50px #00ffcc;
+    }
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.artist-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.artist-photo {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #00ffcc;
+    transition: transform 0.5s ease;
+}
+
+.artist-photo:hover {
+    transform: scale(1.1);
+}
+
+.artist-description {
+    max-width: 600px;
+    padding: 1rem;
+}
+
+.artist-description h2 {
+    font-size: 2rem;
+    color: #ff00cc;
+    animation: neon-glow-pink 1.5s infinite alternate;
+}
+
+@keyframes neon-glow-pink {
+    from {
+        text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
+    }
+    to {
+        text-shadow: 0 0 20px #ff00cc, 0 0 40px #ff00cc, 0 0 50px #ff00cc;
+    }
+}
+
+.music-samples {
+    margin-top: 2rem;
+}
+
+.music-samples h3 {
+    font-size: 2rem;
+    color: #ff00cc;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.song {
+    background: rgba(255, 0, 255, 0.1);
+    border: 2px solid #00ffcc;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+.song:hover {
+    transform: scale(1.05);
+}
+
+.song-controls {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    background-color: #00ffcc;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff00cc;
+}
+
+/* Sección de redes sociales */
+.social-links {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.social-links h3 {
+    font-size: 2rem;
+    color: #ff00cc;
+    margin-bottom: 1.5rem;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-link {
+    color: #00ffcc;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 2px solid #00ffcc;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #ff00cc;
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 3rem;
+    font-size: 1rem;
+}
+
+footer p {
+    color: #00ffcc;
+}
+
+    </style>
 <body>
     <header class="header">
         <h1 class="artist-name">SalaFlowBaby</h1>
