@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalaFlowBaby - Artista Trap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1 class="artist-name">SalaFlowBaby</h1>
+    </header>
+
+    <main class="main-content">
+        <section class="artist-info">
+            <img src="salaflowbaby.jpg" alt="Foto de SalaFlowBaby" class="artist-photo">
+            <div class="artist-description">
+                <h2>Conoce a SalaFlowBaby</h2>
+                <p>SalaFlowBaby es una de las artistas emergentes del trap más electrizantes. Con un estilo único, trae al juego una combinación de beats oscuros y letras que reflejan la vida en las calles. Dale play a sus éxitos y sumérgete en su universo sonoro.</p>
+            </div>
+        </section>
+
+        <section class="music-samples">
+            <h3>Escucha sus Canciones</h3>
+            <div class="song">
+                <h4>Track 1: Vida Callejera</h4>
+                <audio id="audio1" controls>
+                    <source src="cancion1.mp3" type="audio/mp3">
+                    Tu navegador no soporta audio.
+                </audio>
+                <div class="song-controls">
+                    <button onclick="document.getElementById('audio1').play()">Reproducir</button>
+                    <button onclick="document.getElementById('audio1').pause()">Pausar</button>
+                    <button onclick="document.getElementById('audio1').currentTime = 0">Recargar</button>
+                </div>
+            </div>
+
+            <div class="song">
+                <h4>Track 2: Noches Oscuras</h4>
+                <audio id="audio2" controls>
+                    <source src="cancion2.mp3" type="audio/mp3">
+                    Tu navegador no soporta audio.
+                </audio>
+                <div class="song-controls">
+                    <button onclick="document.getElementById('audio2').play()">Reproducir</button>
+                    <button onclick="document.getElementById('audio2').pause()">Pausar</button>
+                    <button onclick="document.getElementById('audio2').currentTime = 0">Recargar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-links">
+            <h3>Sigue a SalaFlowBaby</h3>
+            <div class="links">
+                <a href="https://www.instagram.com/salaflowbaby" target="_blank" class="social-link instagram">Instagram</a>
+                <a href="https://yt.openinapp.co/1753e" target="_blank" class="social-link youtube">YouTube</a>
+                <a href="https://open.spotify.com/album/1Vv3xo7KClP1MP99bbkw8b?si=SawWmgLdTVeqCDa1D3u_Vw" target="_blank" class="social-link spotify">Spotify</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 SalaFlowBaby. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
