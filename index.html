@@ -184,9 +184,97 @@
         footer p {
             color: #00ffcc;
         }
+        /* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el menú de navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin: 0 1.5rem;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    color: #00ffcc;
+}
+
+/* Estilos para las secciones */
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    margin-top: 70px; /* Altura del menú para evitar superposición */
+}
+
+/* Ejemplo de colores alternos para las secciones */
+#home { background-color: #111; }
+#producciones { background-color: #222; }
+#contratacion { background-color: #111; }
+#blog-fun { background-color: #222; }
+#legal { background-color: #111; }
+
     </style>
 </head>
 <body>
+     <!-- Menú de navegación -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#producciones">Producciones</a></li>
+            <li><a href="#contratacion">Contratación</a></li>
+            <li><a href="#blog-fun">Blog Fun</a></li>
+            <li><a href="#legal">Legal</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido de la página -->
+    <section id="home">
+        <!-- Contenido de HOME -->
+    </section>
+
+    <section id="producciones">
+        <!-- Contenido de Producciones -->
+    </section>
+
+    <section id="contratacion">
+        <!-- Contenido de Contratación -->
+    </section>
+
+    <section id="blog-fun">
+        <!-- Contenido de Blog Fun -->
+    </section>
+
+    <section id="legal">
+        <!-- Contenido de Legal -->
+    </section>
+
+    <script src="script.js"></script>
     <img src="https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif" alt="SalaFlowBaby Background" class="background-image">
     
     <header class="header">
@@ -235,4 +323,29 @@
         <p>&copy; 2024 SalaFlowBaby. Todos los derechos reservados.</p>
     </footer>
 </body>
+    <script>
+        // Resaltar la pestaña activa al hacer scroll
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-list a');
+
+    let currentSection = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('active');
+        }
+    });
+});
+
+    </script>
 </html>
