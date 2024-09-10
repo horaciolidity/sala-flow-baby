@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SalaFlowBaby - Artista Trap</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Roboto', sans-serif;
             background-color: #000;
             color: #fff;
             position: relative;
@@ -37,7 +37,7 @@
         .header {
             text-align: center;
             padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.5); /* Más transparente */
         }
 
         .artist-name {
@@ -69,12 +69,14 @@
             margin-bottom: 4rem;
         }
 
+        /* Imagen con un borde de fuego */
         .artist-photo {
-            width: 250px;
-            height: 250px;
+            width: 350px;
+            height: 350px;
             object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid #00ffcc;
+            border: 5px solid #ff4500;
+            background: url('https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif') center/cover no-repeat;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
             transition: transform 0.5s ease;
             margin-bottom: 2rem;
         }
@@ -184,98 +186,81 @@
         footer p {
             color: #00ffcc;
         }
-        /* Estilos generales */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
 
-/* Estilos para el menú de navegación */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-}
+        /* Menú de navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Hacerlo más transparente */
+            z-index: 1000;
+        }
 
-.nav-list {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 1rem 0;
-    margin: 0;
-}
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
 
-.nav-list li {
-    margin: 0 1.5rem;
-}
+        .nav-list li {
+            margin: 0 1.5rem;
+        }
 
-.nav-list a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
+        .nav-list a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
 
-.nav-list a:hover,
-.nav-list a.active {
-    color: #00ffcc;
-}
+        .nav-list a:hover,
+        .nav-list a.active {
+            color: #00ffcc;
+        }
 
-/* Estilos para las secciones */
-section {
-    padding: 100px 20px;
-    min-height: 100vh;
-    background-color: #000;
-    color: #fff;
-    margin-top: 70px; /* Altura del menú para evitar superposición */
-}
+        /* Secciones */
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+            background-color: #000;
+            color: #fff;
+            margin-top: 70px; /* Espacio para el menú */
+        }
 
-/* Ejemplo de colores alternos para las secciones */
-#home { background-color: #111; }
-#producciones { background-color: #222; }
-#contratacion { background-color: #111; }
-#blog-fun { background-color: #222; }
-#legal { background-color: #111; }
+        #home { background-color: #111; }
+        #producciones { background-color: #222; }
+        #contratacion { background-color: #111; }
+        #blog-fun { background-color: #222; }
+        #legal { background-color: #111; }
 
     </style>
 </head>
 <body>
 
-
+    <!-- Imagen de fondo -->
     <img src="https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif" alt="SalaFlowBaby Background" class="background-image">
     
+    <!-- Encabezado -->
     <header class="header">
         <h1 class="artist-name">SalaFlowBaby</h1>
     </header>
 
+    <!-- Contenido principal -->
     <main class="main-content">
         <section class="artist-info">
-            <img src="https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif" alt="Foto de SalaFlowBaby" class="artist-photo">
+            <!-- Imagen con efecto fuego -->
+            <div class="artist-photo"></div>
             <div class="artist-description">
                 <h2>Conoce a SalaFlowBaby</h2>
-                <p>SalaFlowBaby es una artista emergente con una trayectoria impactante en el mundo del trap. Su estilo único combina letras profundas y beats vibrantes que resonan con su audiencia. Ha logrado captar la atención de la industria por su capacidad de innovar dentro del género y conectar con sus seguidores a un nivel emocional. Únete a su creciente legión de fans y sé parte de su ascenso al estrellato.</p>
+                <p>SalaFlowBaby es una artista emergente con una trayectoria impactante en el mundo del trap...</p>
             </div>
         </section>
 
         <section class="music-samples">
             <h3>Escucha sus Canciones</h3>
-            <div class="song">
-                <h4>Track 1: Vida Callejera</h4>
-                <audio id="audio1" controls>
-                    <source src="cancion1.mp3" type="audio/mp3">
-                    Tu navegador no soporta audio.
-                </audio>
-            </div>
-
-            <div class="song">
-                <h4>Track 2: Noches Oscuras</h4>
-                <audio id="audio2" controls>
-                    <source src="cancion2.mp3" type="audio/mp3">
-                    Tu navegador no soporta audio.
-                </audio>
-            </div>
+            <!-- Canciones -->
         </section>
 
         <section class="social-links">
@@ -283,18 +268,15 @@ section {
             <div class="links">
                 <a href="https://www.instagram.com/salaflowbaby" target="_blank" class="social-link instagram">Instagram</a>
                 <a href="https://yt.openinapp.co/1753e" target="_blank" class="social-link youtube">YouTube</a>
-                <a href="https://open.spotify.com/album/1Vv3xo7KClP1MP99bbkw8b?si=SawWmgLdTVeqCDa1D3u_Vw" target="_blank" class="social-link spotify">Spotify</a>
+                <a href="https://open.spotify.com/album/1Vv3xo7KClP1MP99bbkw8b?si=SawWmgLdTVeqCDa1D3u_Vg" target="_blank" class="social-link spotify">Spotify</a>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2024 SalaFlowBaby. Todos los derechos reservados.</p>
-    </footer>
-         <!-- Menú de navegación -->
+    <!-- Menú de navegación -->
     <nav class="navbar">
         <ul class="nav-list">
-            <li><a href="#home">HOME</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#producciones">Producciones</a></li>
             <li><a href="#contratacion">Contratación</a></li>
             <li><a href="#blog-fun">Blog Fun</a></li>
@@ -302,50 +284,9 @@ section {
         </ul>
     </nav>
 
-    <!-- Contenido de la página -->
-    <section id="home">
-        <!-- Contenido de HOME -->
-    </section>
-
-    <section id="producciones">
-        <!-- Contenido de Producciones -->
-    </section>
-
-    <section id="contratacion">
-        <!-- Contenido de Contratación -->
-    </section>
-
-    <section id="blog-fun">
-        <!-- Contenido de Blog Fun -->
-    </section>
-
-    <section id="legal">
-        <!-- Contenido de Legal -->
-    </section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 SalaFlowBaby. Todos los derechos reservados.</p>
+    </footer>
 </body>
-    <script>
-        // Resaltar la pestaña activa al hacer scroll
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-list a');
-
-    let currentSection = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + currentSection) {
-            link.classList.add('active');
-        }
-    });
-});
-
-    </script>
 </html>
