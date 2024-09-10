@@ -6,180 +6,189 @@
     <title>SalaFlowBaby - Artista Trap</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
     <style>
-        /* Fuente retro para el nombre de la artista */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #000;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-body {
-    background: #000;
-    color: #fff;
-    font-family: 'Press Start 2P', cursive;
-}
+        /* Imagen de fondo centrada y fusionada con el contenido */
+        .background-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            filter: blur(10px) brightness(0.6);
+            opacity: 0.4;
+        }
 
-.header {
-    text-align: center;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.8);
-}
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
 
-.artist-name {
-    font-size: 4rem;
-    color: #00ffcc;
-    animation: neon-glow 1.5s infinite alternate;
-}
+        .artist-name {
+            font-size: 4rem;
+            color: #00ffcc;
+            animation: neon-glow 1.5s infinite alternate;
+        }
 
-@keyframes neon-glow {
-    from {
-        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-    }
-    to {
-        text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 50px #00ffcc;
-    }
-}
+        @keyframes neon-glow {
+            from {
+                text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+            }
+            to {
+                text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 50px #00ffcc;
+            }
+        }
 
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem;
-}
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
 
-.artist-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 4rem;
-}
+        .artist-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
 
-.artist-photo {
-    width: 300px;
-    height: auto;
-    border-radius: 50%;
-    border: 5px solid #00ffcc;
-    transition: transform 0.5s ease;
-}
+        .artist-photo {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #00ffcc;
+            transition: transform 0.5s ease;
+            margin-bottom: 2rem;
+        }
 
-.artist-photo:hover {
-    transform: scale(1.1);
-}
+        .artist-photo:hover {
+            transform: scale(1.1);
+        }
 
-.artist-description {
-    max-width: 600px;
-    padding: 1rem;
-}
+        .artist-description {
+            max-width: 800px;
+            padding: 1rem;
+            text-align: center;
+        }
 
-.artist-description h2 {
-    font-size: 2rem;
-    color: #ff00cc;
-    animation: neon-glow-pink 1.5s infinite alternate;
-}
+        .artist-description h2 {
+            font-size: 2.5rem;
+            color: #ff00cc;
+            animation: neon-glow-pink 1.5s infinite alternate;
+        }
 
-@keyframes neon-glow-pink {
-    from {
-        text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
-    }
-    to {
-        text-shadow: 0 0 20px #ff00cc, 0 0 40px #ff00cc, 0 0 50px #ff00cc;
-    }
-}
+        @keyframes neon-glow-pink {
+            from {
+                text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
+            }
+            to {
+                text-shadow: 0 0 20px #ff00cc, 0 0 40px #ff00cc, 0 0 50px #ff00cc;
+            }
+        }
 
-.music-samples {
-    margin-top: 2rem;
-}
+        .artist-description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #fff;
+        }
 
-.music-samples h3 {
-    font-size: 2rem;
-    color: #ff00cc;
-    text-align: center;
-    margin-bottom: 2rem;
-}
+        /* Estilo para las muestras de música */
+        .music-samples {
+            margin-top: 2rem;
+            text-align: center;
+        }
 
-.song {
-    background: rgba(255, 0, 255, 0.1);
-    border: 2px solid #00ffcc;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 15px;
-    transition: transform 0.5s ease;
-}
+        .music-samples h3 {
+            font-size: 2rem;
+            color: #ff00cc;
+            margin-bottom: 2rem;
+        }
 
-.song:hover {
-    transform: scale(1.05);
-}
+        .song {
+            background: rgba(255, 0, 255, 0.1);
+            border: 2px solid #00ffcc;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+        }
 
-.song-controls {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-around;
-}
+        .song:hover {
+            transform: scale(1.05);
+        }
 
-button {
-    background-color: #00ffcc;
-    color: #000;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        audio {
+            width: 100%;
+            max-width: 300px;
+        }
 
-button:hover {
-    background-color: #ff00cc;
-}
+        /* Sección de redes sociales */
+        .social-links {
+            text-align: center;
+            margin-top: 4rem;
+        }
 
-/* Sección de redes sociales */
-.social-links {
-    text-align: center;
-    margin-top: 4rem;
-}
+        .social-links h3 {
+            font-size: 2rem;
+            color: #ff00cc;
+            margin-bottom: 1.5rem;
+        }
 
-.social-links h3 {
-    font-size: 2rem;
-    color: #ff00cc;
-    margin-bottom: 1.5rem;
-}
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
 
-.links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
+        .social-link {
+            color: #00ffcc;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border: 2px solid #00ffcc;
+            padding: 0.5rem 1.5rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-.social-link {
-    color: #00ffcc;
-    font-size: 1.5rem;
-    text-decoration: none;
-    border: 2px solid #00ffcc;
-    padding: 0.5rem 1.5rem;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+        .social-link:hover {
+            background-color: #ff00cc;
+            color: #fff;
+        }
 
-.social-link:hover {
-    background-color: #ff00cc;
-    color: #fff;
-}
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.8);
-    margin-top: 3rem;
-    font-size: 1rem;
-}
-
-footer p {
-    color: #00ffcc;
-}
-
+        footer p {
+            color: #00ffcc;
+        }
     </style>
+</head>
 <body>
+    <img src="https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif" alt="SalaFlowBaby Background" class="background-image">
+    
     <header class="header">
         <h1 class="artist-name">SalaFlowBaby</h1>
     </header>
@@ -189,7 +198,7 @@ footer p {
             <img src="https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif" alt="Foto de SalaFlowBaby" class="artist-photo">
             <div class="artist-description">
                 <h2>Conoce a SalaFlowBaby</h2>
-                <p>SalaFlowBaby es una de las artistas emergentes del trap más electrizantes. Con un estilo único, trae al juego una combinación de beats oscuros y letras que reflejan la vida en las calles. Dale play a sus éxitos y sumérgete en su universo sonoro.</p>
+                <p>SalaFlowBaby es una artista emergente con una trayectoria impactante en el mundo del trap. Su estilo único combina letras profundas y beats vibrantes que resonan con su audiencia. Ha logrado captar la atención de la industria por su capacidad de innovar dentro del género y conectar con sus seguidores a un nivel emocional. Únete a su creciente legión de fans y sé parte de su ascenso al estrellato.</p>
             </div>
         </section>
 
@@ -201,11 +210,6 @@ footer p {
                     <source src="cancion1.mp3" type="audio/mp3">
                     Tu navegador no soporta audio.
                 </audio>
-                <div class="song-controls">
-                    <button onclick="document.getElementById('audio1').play()">Reproducir</button>
-                    <button onclick="document.getElementById('audio1').pause()">Pausar</button>
-                    <button onclick="document.getElementById('audio1').currentTime = 0">Recargar</button>
-                </div>
             </div>
 
             <div class="song">
@@ -214,11 +218,6 @@ footer p {
                     <source src="cancion2.mp3" type="audio/mp3">
                     Tu navegador no soporta audio.
                 </audio>
-                <div class="song-controls">
-                    <button onclick="document.getElementById('audio2').play()">Reproducir</button>
-                    <button onclick="document.getElementById('audio2').pause()">Pausar</button>
-                    <button onclick="document.getElementById('audio2').currentTime = 0">Recargar</button>
-                </div>
             </div>
         </section>
 
