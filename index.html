@@ -7,829 +7,241 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-       /* Reseteo global */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* Transición suave para todas las propiedades */
-    transition: all 0.3s ease;
-}
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Imagen de fondo fusionada con el contenido */
+        .background-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            filter: blur(8px) brightness(0.5);
+            opacity: 0.7;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.6); /* Transparente */
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+        }
+
+        .artist-name {
+            font-size: 4.5rem;
+            color: #ff00cc;
+            animation: neon-glow 2s infinite alternate;
+        }
+
+        @keyframes neon-glow {
+            from {
+                text-shadow: 0 0 15px #ff00cc, 0 0 30px #ff00cc, 0 0 45px #ff00cc;
+            }
+            to {
+                text-shadow: 0 0 30px #ff00cc, 0 0 60px #ff00cc, 0 0 90px #ff00cc;
+            }
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+
+        .artist-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Imagen con efecto fuego */
+        .artist-photo {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border: 5px solid #ff4500;
+            background: url('https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif') center/cover no-repeat;
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .artist-photo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px rgba(255, 69, 0, 1);
+        }
+
+        .artist-description {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .artist-description h2 {
+            font-size: 3rem;
+            color: #ff00cc;
+            animation: neon-glow-pink 2s infinite alternate;
+        }
+
+        @keyframes neon-glow-pink {
+            from {
+                text-shadow: 0 0 15px #ff00cc, 0 0 30px #ff00cc, 0 0 45px #ff00cc;
+            }
+            to {
+                text-shadow: 0 0 30px #ff00cc, 0 0 60px #ff00cc, 0 0 90px #ff00cc;
+            }
+        }
+
+        .artist-description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        /* Estilo para las muestras de música */
+        .music-samples {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background-color: #222;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+        }
+
+        .music-samples h3 {
+            font-size: 2.5rem;
+            color: #ff00cc;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #ff00cc;
+        }
+
+        .song {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ffcc;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+        }
+
+        .song:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
+        }
+
+        audio {
+            width: 100%;
+            max-width: 350px;
+            margin-top: 1rem;
+        }
+
+        /* Sección de redes sociales */
+        .social-links {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .social-links h3 {
+            font-size: 2.5rem;
+            color: #ff00cc;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px #ff00cc;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            color: #00ffcc;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border: 2px solid #00ffcc;
+            padding: 0.5rem 1.5rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        .social-link:hover {
+            background-color: #ff00cc;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            border-top: 2px solid #00ffcc;
+        }
+
+        footer p {
+            color: #00ffcc;
+        }
+
+        /* Menú de navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Menú más transparente */
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .nav-item {
+            margin: 0 1rem;
+        }
+
+        .nav-link {
+            color: #00ffcc;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: #ff00cc;
+            transform: scale(1.1);
+            border-bottom: 2px solid #ff00cc;
+        }
 
-/* Estilos del cuerpo */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #000; /* Negro profundo para un fondo elegante */
-    color: #fff; /* Texto blanco para un buen contraste */
-    position: relative;
-    overflow-x: hidden;
-    line-height: 1.6; /* Mejorar la legibilidad del texto */
-    /* Agregar sombra sutil al texto para mayor legibilidad */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-
-       /* Imagen de fondo fusionada con el contenido */
-.background-image {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    filter: 
-        blur(15px) 
-        brightness(0.5) 
-        contrast(1.2) 
-        sepia(0.3);
-    opacity: 0.5;
-    background: 
-        radial-gradient(circle, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-        url('path-to-your-image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    box-shadow: inset 0 0 150px rgba(0,0,0,0.6); /* Sombra interna para profundidad */
-    clip-path: polygon(
-        0% 0%, 
-        100% 0%, 
-        100% 100%, 
-        0% 90%, 
-        0% 0%
-    ); /* Recorte artístico */
-    overflow: hidden; /* Ocultar contenido fuera del recorte */
-    animation: fadeInOut 30s ease-in-out infinite; /* Animación para un efecto dinámico */
-}
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 0.7;
-    }
-    100% {
-        opacity: 0.3;
-    }
-}
-
-     .header {
-    text-align: center;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro y más opaco para mayor contraste */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.2); /* Sombra externa e interna */
-    backdrop-filter: blur(8px) brightness(1.1); /* Efecto de desenfoque y brillo en el fondo */
-    color: #fff; /* Texto blanco para un buen contraste */
-    position: relative; /* Necesario para los efectos de pseudoelementos */
-    overflow: hidden; /* Ocultar elementos fuera del área del encabezado */
-}
-
-/* Añadir un borde sutil al encabezado */
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil blanco */
-    border-radius: 10px; /* Bordes redondeados para el borde */
-    pointer-events: none; /* No interferir con la interacción del usuario */
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2); /* Sombra interna del borde */
-    mix-blend-mode: overlay; /* Mezcla del borde con el fondo para un efecto artístico */
-    z-index: 1; /* Asegurarse de que el borde esté sobre el fondo pero debajo del contenido */
-}
-
-/* Añadir un sutil gradiente de fondo */
-.header::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%); /* Gradiente sutil */
-    border-radius: 10px; /* Bordes redondeados para el gradiente */
-    z-index: 0; /* Asegurarse de que el gradiente esté detrás del contenido */
-}
-
-
-      .artist-name {
-    font-size: 4rem;
-    color: #00ffcc; /* Color de texto neón */
-    font-weight: bold; /* Negrita para mayor impacto visual */
-    text-transform: uppercase; /* Mayúsculas para un efecto más dramático */
-    letter-spacing: 1px; /* Espaciado de letras para mayor claridad */
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc; /* Sombra de texto inicial para un efecto de neón sutil */
-    animation: neon-glow 1.5s ease-in-out infinite alternate; /* Animación suave y repetitiva */
-}
-
-@keyframes neon-glow {
-    0% {
-        text-shadow: 
-            0 0 10px #00ffcc, 
-            0 0 20px #00ffcc, 
-            0 0 30px #00ffcc,
-            0 0 40px rgba(0, 255, 204, 0.7), /* Añadir una sombra más difusa */
-            0 0 60px rgba(0, 255, 204, 0.5); /* Sombra más difusa para profundidad */
-    }
-    50% {
-        text-shadow: 
-            0 0 20px #00ffcc, 
-            0 0 30px #00ffcc, 
-            0 0 50px #00ffcc,
-            0 0 60px rgba(0, 255, 204, 0.5), /* Ajustar la sombra difusa en el centro de la animación */
-            0 0 80px rgba(0, 255, 204, 0.3); /* Aumentar la difuminación */
-    }
-    100% {
-        text-shadow: 
-            0 0 30px #00ffcc, 
-            0 0 40px #00ffcc, 
-            0 0 60px #00ffcc,
-            0 0 80px rgba(0, 255, 204, 0.3), /* Intensificar la sombra difusa al final de la animación */
-            0 0 100px rgba(0, 255, 204, 0.2); /* Aumentar el desenfoque para un efecto de neón más pronunciado */
-    }
-}
-
-
-     .main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro más opaco para mayor contraste */
-    border-radius: 15px; /* Bordes redondeados para un diseño más suave */
-    box-shadow: 
-        0 4px 6px rgba(0, 0, 0, 0.6), 
-        0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra múltiple para una mayor profundidad */
-    backdrop-filter: blur(10px) brightness(1.1); /* Desenfoque y ajuste de brillo para un efecto de cristal esmerilado */
-    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
-    position: relative; /* Necesario para los efectos de pseudoelementos */
-}
-
-/* Añadir un sutil gradiente y borde para el contenido principal */
-.main-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)); /* Gradiente sutil para un toque elegante */
-    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil blanco para un toque sofisticado */
-    border-radius: 15px; /* Bordes redondeados para el borde */
-    pointer-events: none; /* No interferir con la interacción del usuario */
-    z-index: 1; /* Asegurar que el gradiente esté sobre el fondo pero debajo del contenido */
-}
-
-/* Añadir una animación sutil para el efecto de enfoque */
-.main-content::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%); /* Gradiente radial para un efecto de enfoque */
-    border-radius: 15px; /* Bordes redondeados para el gradiente radial */
-    opacity: 0.1; /* Sutil para no sobrecargar el diseño */
-    animation: pulse 5s ease-in-out infinite; /* Animación de pulso suave */
-    z-index: 0; /* Asegurar que el efecto de pulso esté en el fondo */
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0.1;
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        opacity: 0.1;
-    }
-}
-
-
-       .artist-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 3rem;
-    padding: 1.5rem; /* Añadir padding para más espacio interno */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro y ligeramente translúcido */
-    border-radius: 12px; /* Bordes redondeados para un diseño más suave */
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.7), 
-        0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra múltiple para mayor profundidad */
-    backdrop-filter: blur(8px); /* Desenfoque para un efecto de cristal esmerilado */
-    position: relative; /* Necesario para los efectos de pseudoelementos */
-    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
-}
-
-/* Añadir un sutil gradiente y borde para el contenedor de información */
-.artist-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%); /* Gradiente sutil para un toque elegante */
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde sutil blanco para un toque sofisticado */
-    border-radius: 12px; /* Bordes redondeados para el borde */
-    pointer-events: none; /* No interferir con la interacción del usuario */
-    z-index: 1; /* Asegurar que el gradiente esté sobre el fondo pero debajo del contenido */
-}
-
-/* Efecto de enfoque y animación para el contenedor de información */
-.artist-info::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%); /* Gradiente radial para un efecto de enfoque */
-    border-radius: 12px; /* Bordes redondeados para el gradiente radial */
-    opacity: 0.1; /* Sutil para no sobrecargar el diseño */
-    animation: pulse 5s ease-in-out infinite; /* Animación de pulso suave */
-    z-index: 0; /* Asegurar que el efecto de pulso esté en el fondo */
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0.1;
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        opacity: 0.1;
-    }
-}
-
-/* Añadir un borde interior sutil para un efecto de profundidad adicional */
-.artist-info > * {
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil blanco en los elementos internos */
-    border-radius: 8px; /* Bordes redondeados para un diseño cohesivo */
-    padding: 0.5rem; /* Espacio interno adicional para una mejor presentación */
-}
-
-
-    /* Imagen con efecto de fuego */
-.artist-photo {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border: 5px solid #ff4500; /* Borde de color fuego */
-    background: url('https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif') center/cover no-repeat; /* Imagen de fondo */
-    box-shadow: 
-        0 0 10px rgba(255, 69, 0, 0.8), /* Sombra más intensa */
-        0 0 20px rgba(255, 69, 0, 0.6), /* Sombra difusa adicional */
-        0 0 30px rgba(255, 69, 0, 0.4); /* Sombra difusa más suave */
-    border-radius: 10px; /* Bordes redondeados para un acabado más suave */
-    position: relative; /* Necesario para los efectos de pseudoelementos */
-    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
-    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transición suave para escala y sombra */
-    margin-bottom: 1.5rem;
-}
-
-/* Añadir un efecto de fuego animado */
-.artist-photo::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 69, 0, 0.3) 0%, rgba(255, 69, 0, 0.1) 60%); /* Gradiente radial para un efecto de fuego */
-    border-radius: 10px; /* Bordes redondeados para el gradiente */
-    pointer-events: none; /* No interferir con la interacción del usuario */
-    z-index: 1; /* Asegurar que el gradiente esté sobre el fondo de la imagen */
-    opacity: 0.6; /* Opacidad ajustada para un efecto sutil */
-}
-
-/* Efecto de fuego en hover */
-.artist-photo:hover {
-    transform: scale(1.1);
-    box-shadow: 
-        0 0 20px rgba(255, 69, 0, 0.9), /* Sombra más intensa en hover */
-        0 0 30px rgba(255, 69, 0, 0.7), /* Sombra difusa adicional en hover */
-        0 0 40px rgba(255, 69, 0, 0.5); /* Sombra difusa más suave en hover */
-}
-
-       .artist-description {
-    max-width: 800px;
-    margin: 0 auto 3rem auto; /* Centrando el contenedor y agregando margen inferior */
-    padding: 1.5rem; /* Espacio interno adicional para una mejor presentación */
-    text-align: center; /* Alineación centrada del texto */
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro y translúcido */
-    border-radius: 12px; /* Bordes redondeados para suavizar el diseño */
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.6), 
-        0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra múltiple para profundidad adicional */
-    backdrop-filter: blur(8px); /* Desenfoque para un efecto de cristal esmerilado */
-    position: relative; /* Necesario para los efectos de pseudoelementos */
-    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
-}
-
-/* Añadir un efecto de luz de neón sutil */
-.artist-description::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%); /* Gradiente radial para un efecto de luz suave */
-    border-radius: 50%; /* Bordes redondeados para un gradiente de luz sutil */
-    transform: translate(-50%, -50%); /* Centrar el gradiente sobre el contenedor */
-    opacity: 0.3; /* Opacidad ajustada para un efecto sutil */
-    z-index: 1; /* Asegurar que el gradiente esté sobre el fondo del contenedor */
-    pointer-events: none; /* No interferir con la interacción del usuario */
-}
-
-/* Añadir una animación sutil de pulsación para el texto */
-.artist-description p {
-    position: relative;
-    z-index: 2; /* Asegurar que el texto esté sobre el gradiente */
-    font-size: 1.2rem; /* Tamaño de fuente mejorado para mayor legibilidad */
-    color: #e0e0e0; /* Color del texto más claro para mejor contraste */
-    line-height: 1.6; /* Espaciado de líneas mejorado para mayor legibilidad */
-    transition: color 0.3s ease; /* Transición suave para el color del texto */
-}
-
-/* Efecto de resaltado al pasar el cursor */
-.artist-description:hover p {
-    color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
-}
-
-
-      .artist-description h2 {
-    font-size: 2.5rem;
-    color: #ff00cc; /* Color de texto vibrante */
-    text-transform: uppercase; /* Transformar el texto a mayúsculas para mayor impacto */
-    letter-spacing: 1px; /* Espaciado de letras para una apariencia más estilizada */
-    position: relative; /* Necesario para los efectos de pseudoelementos */
-    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
-    margin-bottom: 1rem; /* Espacio inferior para separar del contenido siguiente */
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transiciones suaves para cambios en color y sombra */
-}
-
-/* Efecto de neón rosa mejorado */
-.artist-description h2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 0, 204, 0.3) 0%, rgba(255, 0, 204, 0.1) 60%); /* Gradiente radial para un halo de luz suave */
-    border-radius: 5px; /* Bordes redondeados para suavizar el gradiente */
-    z-index: -1; /* Asegurar que el halo esté detrás del texto */
-    opacity: 0.5; /* Opacidad ajustada para un efecto sutil */
-    pointer-events: none; /* No interferir con la interacción del usuario */
-}
-
-/* Animación de neón rosa refinada */
-@keyframes neon-glow-pink {
-    from {
-        text-shadow: 
-            0 0 8px #ff00cc, 
-            0 0 16px #ff00cc, 
-            0 0 24px #ff00cc;
-    }
-    to {
-        text-shadow: 
-            0 0 16px #ff00cc, 
-            0 0 32px #ff00cc, 
-            0 0 48px #ff00cc;
-    }
-}
-
-/* Efecto de neón en hover */
-.artist-description h2:hover {
-    color: #ffffff; /* Cambiar color del texto al pasar el cursor */
-    text-shadow: 
-        0 0 15px #ff00cc, 
-        0 0 30px #ff00cc, 
-        0 0 45px #ff00cc; /* Intensificar el efecto de neón en hover */
-}
-
-.artist-description p {
-    font-size: 1.2rem; /* Tamaño de fuente legible y elegante */
-    line-height: 1.6; /* Espaciado de línea adecuado para una lectura cómoda */
-    color: #e0e0e0; /* Color de texto claro para un buen contraste con el fondo oscuro */
-    margin-bottom: 2rem; /* Espacio inferior para separar los párrafos */
-    padding: 0 1rem; /* Espacio interno a los lados para evitar que el texto toque los bordes */
-    text-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.8), /* Sombra sutil para mejorar la legibilidad en fondos oscuros */
-        0 1px 2px rgba(0, 0, 0, 0.6); /* Sombra adicional para mayor profundidad */
-    border-left: 4px solid #ff00cc; /* Línea de borde a la izquierda para un toque decorativo */
-    padding-left: 1.5rem; /* Espacio interno adicional para la línea de borde */
-    background: rgba(0, 0, 0, 0.6); /* Fondo ligeramente translúcido para una separación visual más clara */
-    border-radius: 8px; /* Bordes redondeados para suavizar el diseño */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves para color y fondo */
-}
-
-/* Efecto de resaltado en hover */
-.artist-description p:hover {
-    color: #ffffff; /* Cambiar color del texto al pasar el cursor */
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro en hover para mayor contraste */
-    text-shadow: 
-        0 2px 6px rgba(0, 0, 0, 0.8), /* Intensificar la sombra del texto en hover */
-        0 2px 4px rgba(0, 0, 0, 0.6); /* Añadir más profundidad */
-    border-left-color: #ff66cc; /* Cambiar el color del borde al pasar el cursor para mayor énfasis */
-}
-
-
-      /* Estilo para las muestras de música */
-.music-samples {
-    text-align: center; /* Alinear el contenido al centro */
-    margin-bottom: 4rem; /* Espacio inferior para separar de otros elementos */
-    padding: 2rem; /* Espacio interno para evitar que el contenido toque los bordes */
-    background: rgba(0, 0, 0, 0.7); /* Fondo translúcido para destacar el contenido */
-    border-radius: 12px; /* Bordes redondeados para un aspecto más suave */
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.6), /* Sombra sutil para profundidad */
-        0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra adicional para mayor énfasis */
-    backdrop-filter: blur(8px); /* Desenfoque de fondo para un efecto de cristal esmerilado */
-}
-
-/* Estilo para los títulos de las muestras de música */
-.music-samples h3 {
-    font-size: 2rem; /* Tamaño de fuente adecuado para encabezados */
-    color: #ff00cc; /* Color vibrante para destacar el título */
-    margin-bottom: 1.5rem; /* Espacio inferior para separar del contenido siguiente */
-    position: relative; /* Necesario para los efectos de pseudoelementos */
-    padding-bottom: 0.5rem; /* Espacio adicional en la parte inferior */
-    text-transform: uppercase; /* Transformar el texto a mayúsculas para mayor impacto */
-    letter-spacing: 1px; /* Espaciado de letras para un diseño más estilizado */
-    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
-}
-
-/* Efecto de línea decorativa debajo del título */
-.music-samples h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50%;
-    height: 3px; /* Grosor de la línea decorativa */
-    background: #ff00cc; /* Color de la línea */
-    border-radius: 5px; /* Bordes redondeados para suavizar la línea */
-    box-shadow: 0 0 5px rgba(255, 0, 204, 0.7); /* Sombra para un efecto de neón */
-    transform: translateX(-50%); /* Centrar la línea bajo el título */
-}
-
-/* Efecto de neón en hover para el título */
-.music-samples h3:hover {
-    color: #ffffff; /* Cambiar el color del texto al pasar el cursor */
-    text-shadow: 
-        0 0 10px #ff00cc, 
-        0 0 20px #ff00cc, 
-        0 0 30px #ff00cc; /* Intensificar el efecto de neón en hover */
-}
-
-       .song {
-    background: rgba(255, 0, 255, 0.1); /* Fondo translúcido con un toque rosa */
-    border: 2px solid #00ffcc; /* Borde brillante para destacar el contenedor */
-    padding: 1.5rem; /* Espacio interno para el contenido */
-    margin-bottom: 1.5rem; /* Espacio inferior para separar los elementos */
-    border-radius: 15px; /* Bordes redondeados para un diseño suave */
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra sutil para profundidad */
-        0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra adicional para mayor énfasis */
-    transition: transform 0.5s ease, box-shadow 0.3s ease; /* Transiciones suaves para transformación y sombra */
-}
-
-/* Efecto de transformación en hover */
-.song:hover {
-    transform: scale(1.05); /* Escalar el contenedor para un efecto de aumento */
-    box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.3), /* Intensificar la sombra en hover para más profundidad */
-        0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra adicional para un efecto flotante */
-    background: rgba(255, 0, 255, 0.2); /* Aumentar la opacidad del fondo en hover para destacar */
-}
-
-/* Animación de borde en hover */
-.song:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px; /* Asegurar que el borde esté alineado con los bordes redondeados del contenedor */
-    border: 3px solid #00ffcc; /* Borde adicional para un efecto de resplandor */
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); /* Sombra de borde para un efecto de resplandor de neón */
-    z-index: -1; /* Colocar el pseudoelemento detrás del contenido */
-    transition: opacity 0.3s ease; /* Transición suave para la opacidad */
-    opacity: 0.6; /* Opacidad inicial del borde */
-}
-
-/* Ajuste del contenedor para el pseudoelemento */
-.song {
-    position: relative; /* Necesario para el pseudoelemento */
-    overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
-}
-
-       audio {
-    width: 100%; /* Asegura que el reproductor de audio ocupe el ancho completo del contenedor */
-    max-width: 300px; /* Limita el ancho máximo del reproductor */
-    margin-top: 1rem; /* Espacio superior para separar del contenido anterior */
-    border-radius: 10px; /* Bordes redondeados para un diseño más suave */
-    background: rgba(0, 0, 0, 0.4); /* Fondo sutil para el reproductor de audio */
-    border: 1px solid #00ffcc; /* Borde delgado para un toque decorativo */
-    box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.3), /* Sombra sutil para profundidad */
-        0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra adicional para mayor énfasis */
-    transition: background 0.3s ease, border-color 0.3s ease; /* Transiciones suaves para fondo y borde */
-}
-
-/* Efecto de hover para el reproductor de audio */
-audio:hover {
-    background: rgba(0, 0, 0, 0.6); /* Fondo más oscuro en hover para un efecto de destaque */
-    border-color: #ff00cc; /* Cambiar el color del borde en hover para mayor énfasis */
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.4), /* Intensificar la sombra en hover */
-        0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra adicional para un efecto flotante */
-}
-
-
-    /* Sección de redes sociales */
-.social-links {
-    text-align: center; /* Alinear el contenido al centro */
-    margin-bottom: 3rem; /* Espacio inferior para separar de otros elementos */
-    padding: 2rem; /* Espacio interno adicional */
-    background: rgba(0, 0, 0, 0.5); /* Fondo translúcido para destacar la sección */
-    border-radius: 15px; /* Bordes redondeados para un diseño más suave */
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.4), /* Sombra sutil para profundidad */
-        0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra adicional para mayor énfasis */
-}
-
-/* Título de la sección de redes sociales */
-.social-links h3 {
-    font-size: 2rem; /* Tamaño de fuente adecuado para el encabezado */
-    color: #ff00cc; /* Color vibrante para destacar el título */
-    margin-bottom: 1.5rem; /* Espacio inferior para separar del contenido siguiente */
-    position: relative; /* Necesario para el efecto de pseudoelemento */
-    padding-bottom: 0.5rem; /* Espacio adicional en la parte inferior */
-    text-transform: uppercase; /* Transformar el texto a mayúsculas para mayor impacto */
-    letter-spacing: 1px; /* Espaciado de letras para un diseño más estilizado */
-}
-
-/* Efecto de línea decorativa debajo del título */
-.social-links h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50%;
-    height: 3px; /* Grosor de la línea decorativa */
-    background: #ff00cc; /* Color de la línea */
-    border-radius: 5px; /* Bordes redondeados para suavizar la línea */
-    box-shadow: 0 0 5px rgba(255, 0, 204, 0.7); /* Sombra para un efecto de neón */
-    transform: translateX(-50%); /* Centrar la línea bajo el título */
-}
-
-/* Contenedor de enlaces de redes sociales */
-.links {
-    display: flex; /* Usar flexbox para alinear los enlaces */
-    justify-content: center; /* Alinear los enlaces al centro */
-    gap: 1.5rem; /* Espacio entre los enlaces */
-}
-
-/* Estilo de los enlaces de redes sociales */
-.social-link {
-    color: #00ffcc; /* Color del texto del enlace */
-    font-size: 1.2rem; /* Tamaño de fuente para los enlaces */
-    text-decoration: none; /* Sin subrayado para los enlaces */
-    border: 2px solid #00ffcc; /* Borde delgado para los enlaces */
-    padding: 0.5rem 1.5rem; /* Espacio interno para los enlaces */
-    border-radius: 10px; /* Bordes redondeados para los enlaces */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para fondo, color y transformación */
-}
-
-/* Efecto de hover para los enlaces de redes sociales */
-.social-link:hover {
-    background-color: #ff00cc; /* Fondo del enlace en hover */
-    color: #fff; /* Color del texto en hover */
-    transform: scale(1.05); /* Efecto de escala para resaltar el enlace en hover */
-}
-
-      footer {
-    text-align: center; /* Alinear el texto al centro */
-    padding: 2rem; /* Espacio interno adicional para mayor amplitud */
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)); /* Fondo con degradado para un efecto más dinámico */
-    margin-top: 2rem; /* Espacio superior para separar del contenido anterior */
-    font-size: 1rem; /* Tamaño de fuente estándar */
-    color: #fff; /* Color de texto por defecto */
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Borde superior sutil para separar visualmente del contenido */
-    box-shadow: 
-        0 -2px 4px rgba(0, 0, 0, 0.4), /* Sombra superior sutil para profundidad */
-        0 -4px 8px rgba(0, 0, 0, 0.3); /* Sombra adicional para mayor énfasis */
-}
-
-/* Estilo para el párrafo dentro del footer */
-footer p {
-    color: #00ffcc; /* Color vibrante para el texto del párrafo */
-    margin: 0; /* Eliminar margen para un ajuste más preciso */
-    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido para una apariencia más compacta */
-    line-height: 1.5; /* Espaciado entre líneas para mejorar la legibilidad */
-    text-shadow: 0 0 5px rgba(0, 255, 204, 0.7); /* Sombra de texto para un efecto de neón sutil */
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transiciones suaves para color y sombra de texto */
-}
-
-/* Efecto de hover para el párrafo en el footer */
-footer p:hover {
-    color: #ff00cc; /* Cambiar el color del texto en hover para un efecto llamativo */
-    text-shadow: 0 0 10px rgba(255, 0, 204, 0.8); /* Intensificar la sombra de texto en hover */
-}
-
-       /* Menú de navegación */
-.navbar {
-    position: fixed; /* Fijar el menú en la parte superior */
-    top: 0;
-    width: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); /* Fondo degradado para un efecto más dinámico */
-    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
-    padding: 0.5rem 0; /* Espacio interno adicional para mayor amplitud */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra sutil para profundidad */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Borde inferior sutil para separación visual */
-}
-
-/* Lista de navegación */
-.nav-list {
-    display: flex; /* Usar flexbox para alinear los elementos de la lista */
-    justify-content: center; /* Centrar los elementos de la lista horizontalmente */
-    list-style: none; /* Eliminar los puntos de lista */
-    padding: 0; /* Eliminar el padding predeterminado */
-    margin: 0; /* Eliminar el margen predeterminado */
-}
-
-/* Elementos de la lista de navegación */
-.nav-list li {
-    margin: 0 1.5rem; /* Espacio entre los elementos de la lista */
-}
-
-/* Enlaces de navegación */
-.nav-list a {
-    text-decoration: none; /* Eliminar el subrayado de los enlaces */
-    color: #fff; /* Color de texto por defecto */
-    font-size: 1.2rem; /* Tamaño de fuente adecuado */
-    font-weight: 500; /* Peso de fuente para una mayor claridad */
-    padding: 0.5rem 1rem; /* Espacio interno para los enlaces */
-    border-radius: 5px; /* Bordes redondeados para un diseño más suave */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves para color y fondo */
-}
-
-/* Efecto de hover y estado activo para los enlaces de navegación */
-.nav-list a:hover,
-.nav-list a.active {
-    color: #00ffcc; /* Color del texto en hover y activo */
-    background-color: rgba(0, 255, 204, 0.2); /* Fondo suave en hover y activo */
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5); /* Sombra de texto para un efecto de neón */
-}
-
-
-      /* Secciones */
-section {
-    padding: 60px 30px; /* Mayor espacio interno para una mejor presentación */
-    background-color: #000; /* Fondo negro para contraste con el texto */
-    color: #fff; /* Color de texto blanco para legibilidad */
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Borde inferior sutil para separación visual */
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra interna para profundidad */
-    position: relative; /* Para posicionar elementos internos como el pseudo-elemento */
-    overflow: hidden; /* Para asegurar que los efectos de borde no sobresalgan */
-}
-
-/* Estilo de fondo para secciones específicas */
-#home {
-    background-color: #111; /* Fondo más oscuro para la sección Home */
-}
-
-#producciones {
-    background-color: #222; /* Fondo ligeramente más claro para Producciones */
-}
-
-#contratacion {
-    background-color: #111; /* Fondo similar a Home para Contratación */
-}
-
-#blog-fun {
-    background-color: #222; /* Fondo similar a Producciones para Blog-Fun */
-}
-
-#legal {
-    background-color: #111; /* Fondo similar a Home para Legal */
-}
-
-/* Estilo específico para la sección de muestras de música */
-.music-samples {
-    padding: 2rem; /* Mayor espacio interno para una mejor presentación */
-    background-color: #333; /* Fondo más claro para diferenciar de otras secciones */
-    color: #fff; /* Color de texto blanco */
-    border-radius: 12px; /* Bordes redondeados para un diseño más moderno */
-    box-shadow: 0 0 20px rgba(255, 0, 204, 0.8); /* Sombra de texto con color vibrante para destacar */
-    max-width: 80%; /* Mayor flexibilidad en el ancho */
-    margin: 2rem auto; /* Espacio superior e inferior, centrado en la página */
-    position: relative; /* Para colocar efectos adicionales como pseudo-elementos */
-}
-
-/* Efecto artístico adicional para las secciones */
-section::before {
-    content: ''; /* Crear un pseudo-elemento para el efecto */
-    position: absolute; /* Posicionar de forma absoluta dentro de la sección */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 0, 204, 0.1), rgba(0, 0, 0, 0)); /* Degradado radial sutil para un efecto etéreo */
-    opacity: 0.2; /* Transparencia para no sobrecargar el fondo */
-    pointer-events: none; /* Asegurar que no interfiera con el contenido */
-    z-index: 1; /* Asegurar que esté detrás del contenido */
-}
-
-
-/* Estilo para la canción */
-.song {
-    margin-bottom: 2rem;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para un contraste mejorado */
-    padding: 1.5rem; /* Espacio interno mayor para una presentación más amplia */
-    border-radius: 15px; /* Bordes más redondeados para un diseño moderno */
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.6); /* Sombra para dar profundidad */
-    position: relative; /* Para posicionar elementos internos si es necesario */
-    overflow: hidden; /* Para evitar que los efectos sobresalgan del contenedor */
-}
-
-/* Controles de la canción */
-.controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 1rem; /* Mayor espacio superior para separación */
-}
-
-/* Estilo de botones */
-button {
-    background: none;
-    border: 2px solid #00ffcc; /* Borde vibrante */
-    color: #00ffcc; /* Color del texto */
-    padding: 0.7rem 1rem; /* Espaciado interno más generoso */
-    font-size: 1.4rem; /* Tamaño de fuente ligeramente mayor para mejor legibilidad */
-    border-radius: 8px; /* Bordes redondeados más pronunciados */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el cambio de estado */
-}
-
-/* Estado hover de los botones */
-button:hover {
-    background-color: #ff00cc; /* Fondo vibrante en estado hover */
-    color: #fff; /* Color del texto en estado hover */
-    transform: scale(1.05); /* Efecto de aumento al pasar el cursor */
-}
-
-/* Contenedor de progreso */
-.progress-container {
-    flex-grow: 1;
-    height: 8px; /* Mayor altura para mayor visibilidad */
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil para el contenedor */
-    border-radius: 10px; /* Bordes redondeados para el contenedor */
-    margin: 0 1rem; /* Espacio horizontal para separación */
-    overflow: hidden;
-    position: relative;
-}
-
-/* Barra de progreso */
-.progress-bar {
-    height: 100%;
-    width: 0;
-    background-color: #00ffcc; /* Color brillante de la barra de progreso */
-    transition: width 0.2s ease; /* Transición suave para el cambio de ancho */
-}
-
-/* Tiempo actual y total */
-.current-time, .total-time {
-    color: #fff; /* Color blanco para visibilidad */
-    font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor para mejor legibilidad */
-    font-family: 'Roboto', sans-serif; /* Fuente consistente */
-}
-
-/* Estilo adicional para el progreso */
-.progress-container::before {
-    content: ''; /* Crear un pseudo-elemento para el efecto */
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 255, 204, 0.3), rgba(0, 255, 204, 0) 50%); /* Degradado para un efecto dinámico */
-    opacity: 0.6; /* Transparencia para no sobrecargar */
-    transform: translateY(-50%); /* Centrar verticalmente */
-    z-index: 1; /* Asegurar que esté por encima del fondo */
-}
 
 
     </style>
