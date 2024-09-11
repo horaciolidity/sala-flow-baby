@@ -235,6 +235,70 @@
         #blog-fun { background-color: #222; }
         #legal { background-color: #111; }
 
+        .music-samples {
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff00cc;
+    max-width: 600px;
+    margin: auto;
+}
+
+.song {
+    margin-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+button {
+    background: none;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff00cc;
+    color: #fff;
+}
+
+.progress-container {
+    flex-grow: 1;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #00ffcc;
+    transition: width 0.2s;
+}
+
+.current-time, .total-time {
+    color: #fff;
+    font-size: 1rem;
+}
+
+
     </style>
 </head>
 <body>
@@ -258,26 +322,50 @@
             </div>
         </section>
 
-        <section class="music-samples">
-            <h3>Escucha sus Canciones</h3>
-            <!-- Canción 1 -->
-            <div class="song">
-                <h4>Track 1: Hit Trap</h4>
-                <audio controls>
-                    <source src="https://sala-flow-baby.vercel.app/casualidad.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
-            </div>
+       <section class="music-samples">
+    <h3>Escucha sus Canciones</h3>
 
-            <!-- Canción 2 -->
-            <div class="song">
-                <h4>Track 2: Flow Urbano</h4>
-                <audio controls>
-                    <source src="https://sala-flow-baby.vercel.app/jupiter.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
+    <!-- Canción 1 -->
+    <div class="song">
+        <h4>Track 1: Hit Trap</h4>
+        <audio id="audio1">
+            <source src="https://sala-flow-baby.vercel.app/casualidad.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <div class="controls">
+            <button class="play-btn" onclick="playAudio('audio1')">▶️</button>
+            <button class="pause-btn" onclick="pauseAudio('audio1')">⏸️</button>
+            <button class="restart-btn" onclick="restartAudio('audio1')">⏮️</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar-audio1"></div>
             </div>
-        </section>
+            <span class="current-time" id="current-time-audio1">0:00</span>
+            /
+            <span class="total-time" id="total-time-audio1">0:00</span>
+        </div>
+    </div>
+
+    <!-- Canción 2 -->
+    <div class="song">
+        <h4>Track 2: Flow Urbano</h4>
+        <audio id="audio2">
+            <source src="https://sala-flow-baby.vercel.app/jupiter.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <div class="controls">
+            <button class="play-btn" onclick="playAudio('audio2')">▶️</button>
+            <button class="pause-btn" onclick="pauseAudio('audio2')">⏸️</button>
+            <button class="restart-btn" onclick="restartAudio('audio2')">⏮️</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar-audio2"></div>
+            </div>
+            <span class="current-time" id="current-time-audio2">0:00</span>
+            /
+            <span class="total-time" id="total-time-audio2">0:00</span>
+        </div>
+    </div>
+</section>
+
 
         <!-- Sección de redes sociales -->
         <section class="social-links">
@@ -307,4 +395,48 @@
     </footer>
 
 </body>
+    <script>
+
+        function playAudio(id) {
+    const audio = document.getElementById(id);
+    audio.play();
+    updateProgress(id);
+}
+
+function pauseAudio(id) {
+    const audio = document.getElementById(id);
+    audio.pause();
+}
+
+function restartAudio(id) {
+    const audio = document.getElementById(id);
+    audio.currentTime = 0;
+    audio.play();
+    updateProgress(id);
+}
+
+function updateProgress(id) {
+    const audio = document.getElementById(id);
+    const progressBar = document.getElementById(`progress-bar-${id}`);
+    const currentTimeLabel = document.getElementById(`current-time-${id}`);
+    const totalTimeLabel = document.getElementById(`total-time-${id}`);
+
+    audio.addEventListener('loadedmetadata', () => {
+        totalTimeLabel.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+        currentTimeLabel.textContent = formatTime(audio.currentTime);
+    });
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
+
+    </script>
 </html>
