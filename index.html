@@ -189,38 +189,77 @@
             color: #00ffcc;
         }
 
-        /* Menú de navegación */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Menú más transparente */
-            z-index: 1000;
-        }
+      .navbar {
+    background-color: #1a1a1a;
+    padding: 10px 0;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    white-space: nowrap; /* Evita que las opciones se alineen en varias filas */
+}
 
-        .nav-list {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 1rem 0;
-            margin: 0;
-        }
+.nav-list {
+    list-style: none;
+    display: flex; /* Disposición en fila de los elementos */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
 
-        .nav-list li {
-            margin: 0 1rem;
-        }
+.nav-list li {
+    flex: none; /* Evita que los elementos cambien de tamaño */
+    margin-right: 20px;
+}
 
-        .nav-list a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
+.nav-list li:last-child {
+    margin-right: 0;
+}
 
-        .nav-list a:hover,
-        .nav-list a.active {
-            color: #00ffcc;
-        }
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list a.active {
+    background-color: #ff4081;
+    border-radius: 5px;
+}
+
+.nav-list a:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Scrollbar styling for better UX on mobile */
+.navbar::-webkit-scrollbar {
+    height: 5px;
+}
+
+.navbar::-webkit-scrollbar-thumb {
+    background: #ff4081;
+    border-radius: 10px;
+}
+
+.navbar::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+/* Estilo responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    .nav-list {
+        display: flex;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-list a {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
 
         /* Secciones */
         section {
