@@ -21,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* Imagen de fondo centrada y fusionada con el contenido */
+        /* Imagen de fondo fusionada con el contenido */
         .background-image {
             position: fixed;
             top: 50%;
@@ -37,7 +37,7 @@
         .header {
             text-align: center;
             padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.5); /* Más transparente */
+            background-color: rgba(0, 0, 0, 0.5); /* Transparente */
         }
 
         .artist-name {
@@ -58,7 +58,7 @@
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem;
+            padding: 2rem;
             background-color: rgba(0, 0, 0, 0.7);
         }
 
@@ -66,19 +66,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
-        /* Imagen con un borde de fuego */
+        /* Imagen con efecto de fuego */
         .artist-photo {
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
             object-fit: cover;
             border: 5px solid #ff4500;
             background: url('https://sala-flow-baby.vercel.app/photo_5118833751445581324_y.jfif') center/cover no-repeat;
             box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
             transition: transform 0.5s ease;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .artist-photo:hover {
@@ -87,8 +87,8 @@
 
         .artist-description {
             max-width: 800px;
-            padding: 1rem;
             text-align: center;
+            margin-bottom: 3rem;
         }
 
         .artist-description h2 {
@@ -110,12 +110,13 @@
             font-size: 1.2rem;
             line-height: 1.6;
             color: #fff;
+            margin-bottom: 2rem;
         }
 
         /* Estilo para las muestras de música */
         .music-samples {
-            margin-top: 2rem;
             text-align: center;
+            margin-bottom: 4rem;
         }
 
         .music-samples h3 {
@@ -128,7 +129,7 @@
             background: rgba(255, 0, 255, 0.1);
             border: 2px solid #00ffcc;
             padding: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             border-radius: 15px;
             transition: transform 0.5s ease;
         }
@@ -140,12 +141,13 @@
         audio {
             width: 100%;
             max-width: 300px;
+            margin-top: 1rem;
         }
 
         /* Sección de redes sociales */
         .social-links {
             text-align: center;
-            margin-top: 4rem;
+            margin-bottom: 3rem;
         }
 
         .social-links h3 {
@@ -179,7 +181,7 @@
             text-align: center;
             padding: 1rem;
             background-color: rgba(0, 0, 0, 0.8);
-            margin-top: 3rem;
+            margin-top: 2rem;
             font-size: 1rem;
         }
 
@@ -192,7 +194,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Hacerlo más transparente */
+            background-color: rgba(0, 0, 0, 0.5); /* Menú más transparente */
             z-index: 1000;
         }
 
@@ -205,7 +207,7 @@
         }
 
         .nav-list li {
-            margin: 0 1.5rem;
+            margin: 0 1rem;
         }
 
         .nav-list a {
@@ -222,11 +224,9 @@
 
         /* Secciones */
         section {
-            padding: 100px 20px;
-            min-height: 100vh;
+            padding: 50px 20px;
             background-color: #000;
             color: #fff;
-            margin-top: 70px; /* Espacio para el menú */
         }
 
         #home { background-color: #111; }
@@ -254,21 +254,38 @@
             <div class="artist-photo"></div>
             <div class="artist-description">
                 <h2>Conoce a SalaFlowBaby</h2>
-                <p>SalaFlowBaby es una artista emergente con una trayectoria impactante en el mundo del trap...</p>
+                <p>SalaFlowBaby es una artista emergente con una trayectoria impactante en el mundo del trap, logrando capturar la esencia del sonido urbano...</p>
             </div>
         </section>
 
         <section class="music-samples">
             <h3>Escucha sus Canciones</h3>
-            <!-- Canciones -->
+            <!-- Canción 1 -->
+            <div class="song">
+                <h4>Track 1: Hit Trap</h4>
+                <audio controls>
+                    <source src="https://sala-flow-baby.vercel.app/casualidad.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+
+            <!-- Canción 2 -->
+            <div class="song">
+                <h4>Track 2: Flow Urbano</h4>
+                <audio controls>
+                    <source src="https://sala-flow-baby.vercel.app/jupiter.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
         </section>
 
+        <!-- Sección de redes sociales -->
         <section class="social-links">
             <h3>Sigue a SalaFlowBaby</h3>
             <div class="links">
-                <a href="https://www.instagram.com/salaflowbaby" target="_blank" class="social-link instagram">Instagram</a>
-                <a href="https://yt.openinapp.co/1753e" target="_blank" class="social-link youtube">YouTube</a>
-                <a href="https://open.spotify.com/album/1Vv3xo7KClP1MP99bbkw8b?si=SawWmgLdTVeqCDa1D3u_Vg" target="_blank" class="social-link spotify">Spotify</a>
+                <a href="https://facebook.com" target="_blank" class="social-link">Facebook</a>
+                <a href="https://instagram.com" target="_blank" class="social-link">Instagram</a>
+                <a href="https://spotify.com" target="_blank" class="social-link">Spotify</a>
             </div>
         </section>
     </main>
@@ -288,5 +305,6 @@
     <footer>
         <p>© 2024 SalaFlowBaby. Todos los derechos reservados.</p>
     </footer>
+
 </body>
 </html>
